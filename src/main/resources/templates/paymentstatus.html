@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml"
+	xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+.failed {
+	color: red;
+}
+
+.success {
+	color: green;
+}
+</style>
+</head>
+<body>
+	<h1>Payment Status Page</h1>
+	<a href="/">Back to Home Page</a>
+	<h3>
+		Transaction Id : <span th:text="${payment.txnId}"></span>
+	</h3>
+	<h3>
+		Customer Name : <span th:text="${payment.name}"></span>
+	</h3>
+	<h3>
+		Email : <span th:text="${payment.email}"></span>
+	</h3>
+	<h3>
+		Product Name : <span th:text="${payment.productInfo}"></span>
+	</h3>
+	<h3>
+		Amount : <span th:text="${payment.amount}"></span>
+	</h3>
+	<h3>
+		Payment Status : <span th:text="${payment.paymentStatus}"
+			th:classappend="${payment.paymentStatus} == 'Failed' ? 'failed'"></span>
+	</h3>
+</body>
+</html>

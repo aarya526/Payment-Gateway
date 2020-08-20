@@ -24,12 +24,13 @@ public class PaymentServiceImpl implements PaymentService {
 	public PaymentDetail proceedPayment(PaymentDetail paymentDetail) {
 		PaymentUtil paymentUtil = new PaymentUtil();
 		paymentDetail = paymentUtil.populatePaymentDetail(paymentDetail);
+		System.out.println("Hash : " + paymentDetail.getHash());
 		savePaymentDetail(paymentDetail);
 		return paymentDetail;
 	}
 
 	@Override
-	public String payuCallback(PaymentCallback paymentResponse) {
+	public Payment payuCallback(PaymentCallback paymentResponse) {
 		String msg = "Transaction failed.";
 		Payment payment = paymentRepository.findByTxnId(paymentResponse.getTxnid());
 		if (payment != null) {
@@ -46,7 +47,7 @@ public class PaymentServiceImpl implements PaymentService {
 			payment.setMode(paymentResponse.getMode());
 			paymentRepository.save(payment);
 		}
-		return msg;
+		return payment;
 	}
 
 	private void savePaymentDetail(PaymentDetail paymentDetail) {

@@ -10,7 +10,7 @@ public interface PaymentService {
 
 	PaymentDetail proceedPayment(PaymentDetail paymentDetail);
 
-	String payuCallback(PaymentCallback paymentResponse);
+	Payment payuCallback(PaymentCallback paymentResponse);
 
 	List<Payment> findAll();
 

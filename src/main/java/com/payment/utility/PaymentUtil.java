@@ -20,7 +20,7 @@ public class PaymentUtil {
 		String hashString = "";
 		Random rand = new Random();
 		String randomId = Integer.toString(rand.nextInt()) + (System.currentTimeMillis() / 1000L);
-		String txnId = "Dev" + hashCal("SHA-256", randomId).substring(0, 12);
+		String txnId = "Klc" + hashCal("SHA-256", randomId).substring(0, 12);
 		paymentDetail.setTxnId(txnId);
 		String hash = "";
 		// String otherPostParamSeq =

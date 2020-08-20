@@ -33,17 +33,17 @@ public class PaymentController {
 		return new ResponseEntity<PaymentDetail>(paymentService.proceedPayment(paymentDetail), HttpStatus.OK);
 	}
 
-	@RequestMapping(path = "/payment-response", method = RequestMethod.POST)
-	public ResponseEntity<?> payuCallback(@RequestParam String mihpayid, @RequestParam String status,
-			@RequestParam PaymentMode mode, @RequestParam String txnid, @RequestParam String hash) {
-		PaymentCallback paymentCallback = new PaymentCallback();
-		paymentCallback.setMihpayid(mihpayid);
-		paymentCallback.setTxnid(txnid);
-		paymentCallback.setMode(mode);
-		paymentCallback.setHash(hash);
-		paymentCallback.setStatus(status);
-		return new ResponseEntity<String>(paymentService.payuCallback(paymentCallback), HttpStatus.OK);
-	}
+//	@RequestMapping(path = "/payment-response", method = RequestMethod.POST)
+//	public ResponseEntity<?> payuCallback(@RequestParam String mihpayid, @RequestParam String status,
+//			@RequestParam PaymentMode mode, @RequestParam String txnid, @RequestParam String hash) {
+//		PaymentCallback paymentCallback = new PaymentCallback();
+//		paymentCallback.setMihpayid(mihpayid);
+//		paymentCallback.setTxnid(txnid);
+//		paymentCallback.setMode(mode);
+//		paymentCallback.setHash(hash);
+//		paymentCallback.setStatus(status);
+//		return new ResponseEntity<Payment>(paymentService.payuCallback(paymentCallback), HttpStatus.OK);
+//	}
 
 	@GetMapping("/list")
 	public ResponseEntity<?> payments() {
