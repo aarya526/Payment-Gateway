@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html ng-app="paymentApp">
+<head>
+<meta charset="UTF-8">
+<title>Payment Lists</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css"
+	href="webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
+<script type="text/javascript" src="webjars/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript"
+	src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js"></script>
+<script type="text/javascript" src="/paymentApp.js"></script>
+<script type="text/javascript" src="/paymentListController.js"></script>
+</head>
+<body ng-controller="paymentListCtrl">
+	<div class="container">
+		<h2>Payment List</h2>
+		<p>
+			<a href="/payment" class="btn btn-primary">Make Payment</a>
+		</p>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>Email</th>
+					<th>Name</th>
+					<th>Phone</th>
+					<th>productInfo</th>
+					<th>Amount</th>
+					<th>Status</th>
+					<th>paymentDate</th>
+					<th>txnId</th>
+					<th>mihpayId</th>
+					<th>mode</th>
+					<th>Delete</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="p in payments" ng-if="payments.length > 0">
+					<td>{{p.id}}</td>
+					<td>{{p.email}}</td>
+					<td>{{p.name}}</td>
+					<td>{{p.phone}}</td>
+					<td>{{p.productInfo}}</td>
+					<td>{{p.amount}}</td>
+					<td>{{p.paymentStatus}}</td>
+					<td>{{p.paymentDate}}</td>
+					<td>{{p.txnId}}</td>
+					<td>{{p.mihpayId}}</td>
+					<td>{{p.mode}}</td>
+					<td><button type="button" ng-click="delete(p.id)"
+							class="btn btn-danger">Delete</button></td>
+				</tr>
+				<tr ng-if="payments.length == 0">
+					<td colspan="13">
+						<div class="alert alert-danger text-center">No Payments Done!</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+</body>
+</html>

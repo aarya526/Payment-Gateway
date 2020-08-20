@@ -1,6 +1,7 @@
 package com.payment.service.impl;
 
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -59,5 +60,18 @@ public class PaymentServiceImpl implements PaymentService {
 		payment.setProductInfo(paymentDetail.getProductInfo());
 		payment.setTxnId(paymentDetail.getTxnId());
 		paymentRepository.save(payment);
+	}
+
+	@Override
+	public List<Payment> findAll() {
+		return (List<Payment>) paymentRepository.findAll();
+
+	}
+
+	@Override
+	public void delete(int id) {
+		Payment payment = paymentRepository.findById(id).orElse(null);
+		paymentRepository.delete(payment);
+
 	}
 }

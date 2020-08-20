@@ -2,6 +2,6 @@ package com.payment.model;
 
 public enum PaymentMode {
 
-	NB, DC, CC
+	NB, DC, CC , CASH
 
 }

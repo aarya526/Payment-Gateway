@@ -2,6 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" type="text/css"
 	href="webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
 <script type="text/javascript" src="webjars/jquery/1.11.1/jquery.min.js"></script>
@@ -9,36 +10,43 @@
 	src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script type="text/javascript"
 	src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js"></script>
-<script type="text/javascript" src="/paymentController.js"></script>
+<script type="text/javascript" src="/paymentApp.js"></script>
+<script type="text/javascript" src="/paymentSubmitController.js"></script>
 <title>Payment Gateway Demo</title>
 </head>
-<body ng-app="paymentApp" ng-controller="paymentCtrl">
+<body ng-app="paymentApp" ng-controller="paymentSubmitCtrl">
 
 	<div class="col-md-6">
 		<h2>Payment Form</h2>
+		<p>
+			<a href="/" class="btn btn-primary">Payments List</a>
+		</p>
 		<form action="https://test.payu.in/_payment" name="payuform"
 			method="POST">
 			<div class="form-group">
 				<label for="productInfo">Product Name:</label> <input type="text"
 					class="form-control" id="productInfo" name="productinfo"
-					ng-model="productinfo">
+					ng-model="productinfo" required>
 			</div>
 			<div class="form-group">
 				<label for="firstname">Name:</label> <input type="text"
 					class="form-control" id="firstname" name="firstname"
-					ng-model="firstname">
+					ng-model="firstname" required>
 			</div>
 			<div class="form-group">
 				<label for="email">Email:</label> <input type="email"
-					class="form-control" id="email" name="email" ng-model="email">
+					class="form-control" id="email" name="email" ng-model="email"
+					required>
 			</div>
 			<div class="form-group">
 				<label for="email">Phone:</label> <input type="number"
-					class="form-control" id="phone" name="phone" ng-model="phone">
+					class="form-control" id="phone" name="phone" ng-model="phone"
+					required>
 			</div>
 			<div class="form-group">
 				<label for="amount">Amount:</label> <input type="number"
-					class="form-control" id="amount" name="amount" ng-model="amount">
+					class="form-control" id="amount" name="amount" ng-model="amount"
+					required>
 			</div>
 			<textarea name="surl" id="surl" ng-model="surl" rows="2" cols="2"
 				hidden></textarea>
@@ -52,7 +60,8 @@
 			<textarea name="service_provider" id="service_provider" rows="2"
 				cols="2" hidden></textarea>
 			<button type="button" class="btn btn-default"
-				ng-show="!showSubmitButton" ng-click="confirmPayment()">Confirm</button>
+				ng-show="!showSubmitButton" ng-click="confirmPayment()"
+				ng-disabled="payuform.$invalid">Confirm</button>
 			<button type="submit" class="btn btn-danger"
 				ng-show="showSubmitButton">Submit</button>
 		</form>

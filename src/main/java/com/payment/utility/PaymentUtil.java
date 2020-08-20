@@ -8,9 +8,9 @@ import com.payment.model.PaymentDetail;
 
 public class PaymentUtil {
 
-	private static final String paymentKey = "your-key";
+	private static final String paymentKey = "gtKFFx";
 
-	private static final String paymentSalt = "your-salt";
+	private static final String paymentSalt = "eCwWELxi";
 
 	private static final String sUrl = "http://localhost:8080/payment/payment-response";
 

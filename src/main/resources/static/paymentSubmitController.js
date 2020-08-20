@@ -1,8 +1,8 @@
-var App = angular.module('paymentApp', []);
-App.controller('paymentCtrl', ['$scope', '$http', '$q', function($scope, $http, $q) {
+
+App.controller('paymentSubmitCtrl', ['$scope', '$http', '$q', function($scope, $http, $q) {
 
 	$scope.showSubmitButton = false;
-	$scope.productinfo = 'Online Course';
+	$scope.productinfo = '';
 	$scope.firstname = '';
 	$scope.email = '';
 	$scope.phone = '';
