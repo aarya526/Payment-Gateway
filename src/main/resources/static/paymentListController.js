@@ -1,4 +1,4 @@
-App.controller('paymentListCtrl', ['$scope', '$http', function paymentListController($scope, $http) {
+App.controller('paymentListCtrl', ['$scope', '$http', '$ngBootbox', function paymentListController($scope, $http, $ngBootbox) {
 
 	$scope.payments = [];
 
@@ -17,11 +17,23 @@ App.controller('paymentListCtrl', ['$scope', '$http', function paymentListContro
 
 	}
 
-	$scope.delete = function(id) {
 
-		$http.delete("/payment/delete/" + id).then(function() {
-			$scope.listPayments();
-		});
+	$scope.dialogDelete = function(id) {
+
+
+		$ngBootbox.confirm('Delete ' + id + '?')
+			.then(function() {
+				$http.delete("/payment/delete/" + id).then(function() {
+					$scope.listPayments();
+				}, function(response) {
+					alert(response.data);
+				});
+			},
+				function() {
+					//Confirm was cancelled, don't delete customer
+					console.log('Confirm was cancelled');
+					});
+
 
 	}
 

@@ -56,6 +56,7 @@ public class HomeController {
 		paymentCallback.setStatus(status);
 		Payment payment = paymentService.payuCallback(paymentCallback);
 		model.addAttribute("payment", payment);
+		System.out.println("Payment Status : " + payment.getPaymentStatus());
 		return "paymentstatus";
 	}
 

@@ -3,13 +3,24 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" type="text/css"
-	href="webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
-<script type="text/javascript" src="webjars/jquery/1.11.1/jquery.min.js"></script>
-<script type="text/javascript"
-	src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script type="text/javascript"
 	src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js"></script>
+<script type="text/javascript" src="/bootbox.js"></script>
+<script type="text/javascript" src="/ngBootbox.js"></script>
 <script type="text/javascript" src="/paymentApp.js"></script>
 <script type="text/javascript" src="/paymentSubmitController.js"></script>
 <title>Payment Gateway Demo</title>
@@ -59,10 +70,10 @@
 				hidden></textarea>
 			<textarea name="service_provider" id="service_provider" rows="2"
 				cols="2" hidden></textarea>
-			<button type="button" class="btn btn-default"
+			<button type="button" class="btn btn-outline-secondary"
 				ng-show="!showSubmitButton" ng-click="confirmPayment()"
 				ng-disabled="payuform.$invalid">Confirm</button>
-			<button type="submit" class="btn btn-danger"
+			<button type="submit" class="btn btn-outline-danger"
 				ng-show="showSubmitButton">Submit</button>
 		</form>
 	</div>

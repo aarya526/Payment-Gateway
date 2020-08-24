@@ -41,6 +41,9 @@ public class PaymentServiceImpl implements PaymentService {
 			} else if (paymentResponse.getStatus().equals("success")) {
 				paymentStatus = PaymentStatus.Success;
 				msg = "Transaction success";
+			} else if (paymentResponse.getStatus().equals("pending")) {
+				paymentStatus = PaymentStatus.Pending;
+				msg = "Transaction Pending";
 			}
 			payment.setPaymentStatus(paymentStatus);
 			payment.setMihpayId(paymentResponse.getMihpayid());
